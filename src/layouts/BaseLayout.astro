@@ -1,0 +1,18 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const { title, description, bodyClass = '', styles = [], apos = false } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const url = (path) => `${base}${path}`;
+---
+<!doctype html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title><meta name="description" content={description}><meta name="theme-color" content="#0047ba">
+<link rel="icon" type="image/svg+xml" href={url('/assets/miles-physio-icon.svg?v=2')}>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;450;500;550;600;650;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href={url('/style.css?v=12')}>
+{styles.map((style) => <link rel="stylesheet" href={url(style)} />)}
+</head><body class={bodyClass}><a class="skip-link" href="#main">Skip to content</a><Header /><slot /><Footer />
+<script is:inline src={url('/script.js?v=6')}></script>{apos && <script is:inline src={url('/apos.js?v=1')}></script>}
+</body></html>
