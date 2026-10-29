@@ -15,4 +15,16 @@ const url = (path) => `${base}${path}`;
 {styles.map((style) => <link rel="stylesheet" href={url(style)} />)}
 </head><body class={bodyClass}><a class="skip-link" href="#main">Skip to content</a><Header /><slot /><Footer />
 <script is:inline src={url('/script.js?v=6')}></script>{apos && <script is:inline src={url('/apos.js?v=1')}></script>}
+<script is:inline>
+window.addEventListener('load', function () {
+  var el = document.createElement('script');
+  el.setAttribute('src', 'https://client.consolto.com/iframeApp/iframeApp.js');
+  el.id = 'et-iframe';
+  el.async = true;
+  el.setAttribute('data-widgetId', '6ae31b7800e5a93c4180f341');
+  el.setAttribute('data-version', 0.5);
+  el.setAttribute('data-test', false);
+  document.body.appendChild(el);
+});
+</script>
 </body></html>
